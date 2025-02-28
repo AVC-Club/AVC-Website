@@ -63,7 +63,7 @@
 
 ### 1. Clone the Repository
 ```sh
- git clone <repository-url>
+ git clone https://github.com/AVC-Club/AVC-Website
 ```
 
 ### 2. Navigate to the Project Directory
