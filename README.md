@@ -75,11 +75,12 @@ cd AVC-Website
 ```sh
 composer require slim/slim:"4.*"
 composer require slim/psr7
+composer require slim/php-view
 ```
 
 ### 4. Start the Development Server
 ```sh
-php -S localhost:8888 -t public/
+php -S localhost:8888 app.php
 ```
 
 ### 5. Access the Website
