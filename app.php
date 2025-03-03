@@ -49,5 +49,5 @@ function registerErrorHandlers($app, $publicPath) {
 }
 
 registerErrorHandlers($app, $publicPath);
-
+// Gab was here
 $app->run();
