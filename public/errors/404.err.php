@@ -1,4 +1,7 @@
-<?php require(__DIR__ . '/../../template/header.temp.php'); ?>
+<?php 
+require(__DIR__ . '/../../template/header.temp.php');
+require(__DIR__ . '/../../template/navbar.temp.php');
+?>
 <h1>404 - Page Not Found</h1>
 <p>The page you're looking for doesn't exist.</p>
 <?php require(__DIR__ . '/../../template/footer.temp.php'); ?>
