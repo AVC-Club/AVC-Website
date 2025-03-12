@@ -24,10 +24,14 @@ $app->get('/committee', function (Req $req, Res $res) use ($publicPath) {
 
     $viewData = [
         'members' => [
-            ['name' => 'John Smith','position' => 'President'],
-            ['name' => 'Alex Brozki', 'position' => 'Vice President'],
-            ['name' => 'Jack Swind', 'position' => 'Secretary'],
-            ['name' => 'Zac D. Knutz','position' => 'Treasurer'],
+            ['name' => 'Paul Wong', 'position' => 'President'],
+            ['name' => 'Caleb Lau', 'position' => 'Vice President'],
+            ['name' => 'Eileen Zhang', 'position' => 'Secretary'],
+            ['name' => 'Chai Shean Ng', 'position' => 'Treasurer'],
+            ['name' => 'Winston Yu', 'position' => 'Assistant Treasurer'],
+            ['name' => 'Jie Zhou', 'position' => 'Assistant Treasurer'],
+            ['name' => 'Vanessa Do', 'position' => 'Social Media Manager'],
+            ['name' => 'Nick Bowman', 'position' => 'General Committee'],
         ]
     ];
 
