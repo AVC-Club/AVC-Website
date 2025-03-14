@@ -1,4 +1,5 @@
 <!--START OF NAVBAR-->
+<?php $currentPage = $_SERVER['REQUEST_URI']; ?>
 
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-dark bg-dark bg-body-tertiary navbar-expand-lg sticky-top py-3" id="mainNav">
@@ -20,12 +21,24 @@
             <!-- Navbar Items -->
             <div class="collapse navbar-collapse text-center" id="navcol-menu">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/fixture-results">Fixtures</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/teams">Our Teams</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/committee">Committee</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage == '/') ? 'active fw-bold' : ''; ?>" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage == '/fixture-results') ? 'active fw-bold' : ''; ?>" href="/fixture-results">Fixtures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage == '/gallery') ? 'active fw-bold' : ''; ?>" href="/gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage == '/teams') ? 'active fw-bold' : ''; ?>" href="/teams">Our Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage == '/committee') ? 'active fw-bold' : ''; ?>" href="/committee">Committee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($currentPage == '/about-us') ? 'active fw-bold' : ''; ?>" href="/about-us">About Us</a>
+                    </li>
                 </ul>
                 <a class="btn btn-primary shadow mb-3 mt-3" role="button" href="/open-gyms">Come Play!</a>
             </div>
