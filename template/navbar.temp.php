@@ -1,8 +1,8 @@
 <!--START OF NAVBAR-->
 
 <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top py-3" id="mainNav">
-        <div class="container d-flex align-items-center justify-content-between border-bottom">
+    <nav class="navbar navbar-dark bg-dark bg-body-tertiary navbar-expand-lg sticky-top py-3" id="mainNav">
+        <div class="container d-flex align-items-center justify-content-between">
 
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
