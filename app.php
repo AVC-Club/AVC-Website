@@ -14,6 +14,7 @@ $publicPath = __DIR__ . '/public';
 // Create App
 $app = AppFactory::create();
 
+//! A 'hack-ish' way to control the public content. Will need to find a better way!
 $app->get('/favicon.ico', function (Req $req, Res $res, array $args) use ($publicPath) {
     $streamFactory = new Slim\Psr7\Factory\StreamFactory();
     return $res
@@ -22,6 +23,17 @@ $app->get('/favicon.ico', function (Req $req, Res $res, array $args) use ($publi
             $streamFactory->createStreamFromFile($publicPath . '/src/images/AVC-Logo.svg')
         );
 });
+
+$app->get('/genericPlaceholder.jpg', function (Req $req, Res $res, array $args) use ($publicPath) {
+    $streamFactory = new Slim\Psr7\Factory\StreamFactory();
+    return $res
+        ->withHeader('Content-Type', 'image/jpg') // Set proper SVG MIME type
+        ->withBody(
+            $streamFactory->createStreamFromFile($publicPath . '/src/images/generic-placeholder.jpg')
+        );
+});
+
+//! End of 'hack-ish' way
 
 
 $app->get('/', function (Req $req, Res $res) use ($publicPath) {
@@ -32,16 +44,17 @@ $app->get('/', function (Req $req, Res $res) use ($publicPath) {
 $app->get('/committee', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
 
-    $viewData = [
+    //? Temp data, will change once working on db 
+    $viewData =  [
         'members' => [
-            ['name' => 'Paul Wong', 'position' => 'President'],
-            ['name' => 'Caleb Lau', 'position' => 'Vice President'],
-            ['name' => 'Eileen Zhang', 'position' => 'Secretary'],
-            ['name' => 'Chai Shean Ng', 'position' => 'Treasurer'],
-            ['name' => 'Winston Yu', 'position' => 'Assistant Treasurer'],
-            ['name' => 'Jie Zhou', 'position' => 'Assistant Treasurer'],
-            ['name' => 'Vanessa Do', 'position' => 'Social Media Manager'],
-            ['name' => 'Nick Bowman', 'position' => 'General Committee'],
+            ['name' => 'Paul Wong', 'role' => 'President', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Caleb Lau', 'role' => 'Vice President', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Eileen Zhang', 'role' => 'Secretary', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Chai Shean Ng', 'role' => 'Treasurer', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Winston Yu', 'role' => 'Assistant Treasurer', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Jie Zhou', 'role' => 'Assistant Treasurer', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Vanessa Do', 'role' => 'Social Media Manager', 'image' => 'genericPlaceholder.jpg'],
+            ['name' => 'Nick Bowman', 'role' => 'General Committee', 'image' => 'genericPlaceholder.jpg'],
         ]
     ];
 
@@ -49,7 +62,8 @@ $app->get('/committee', function (Req $req, Res $res) use ($publicPath) {
 })->setName('committee');
 
 // Register error handlers
-function registerErrorHandlers($app, $publicPath) {
+function registerErrorHandlers($app, $publicPath)
+{
     $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
     $errorHandler = function ($req, HttpException $exception, $displayErrorDetails) use ($publicPath) {
