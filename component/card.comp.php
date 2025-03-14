@@ -19,7 +19,7 @@ class Card
     private static function committeeCard($member)
     {
         // Default image if not provided
-        $imgPath = $member['image'] ?? 'genericPlaceholder.jpg';
+        $imgPath = $member['image'] ?? '/images/generic-placeholder.jpg';
 
         return '
         <div class="col mb-4">
