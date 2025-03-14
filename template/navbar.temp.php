@@ -8,7 +8,7 @@
             <!-- Logo & Title -->
             <div class="d-flex align-items-center">
                 <a class="navbar-brand d-flex align-items-center" href="https://www.facebook.com/groups/7061129270619986">
-                    <img src="/favicon.ico" alt="AVC Logo" width="64" height="64" class="me-2">
+                    <img src="/images/AVC-Logo.svg" alt="AVC Logo" width="64" height="64" class="me-2">
                     <span>Alliance Volleyball Club</span>
                 </a>
             </div>

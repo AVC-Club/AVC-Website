@@ -28,7 +28,7 @@
             <!-- Social Media & About -->
             <div class="col-12 col-md-4 d-flex flex-column align-items-center align-items-md-start order-first order-md-last mb-4 mb-md-0">
                 <div class="fw-bold d-flex align-items-center mb-2">
-                    <img src="/favicon.ico" width="32" height="32" class="me-2">
+                    <img src="/images/AVC-Logo.svg" width="32" height="32" class="me-2">
                     <span>Alliance</span>
                 </div>
                 <p class="text-muted copyright text-center text-md-start">
