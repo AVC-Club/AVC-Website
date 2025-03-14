@@ -26,7 +26,7 @@
 			<div class="col-lg-3 text-center text-lg-start d-flex flex-column align-items-center order-first align-items-lg-start order-lg-last item social">
 				<div class="fw-bold d-flex align-items-center mb-2">
 					<span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center bs-icon me-2">
-						<img src="public/src/images/AVC-Logo.png" width="32" height="32">
+						<img src="/favicon.ico" width="32" height="32">
 					</span>
 					<span>Alliance</span>
 				</div>
