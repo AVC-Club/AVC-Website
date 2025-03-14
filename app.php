@@ -14,6 +14,13 @@ $publicPath = __DIR__ . '/public';
 // Create App
 $app = AppFactory::create();
 
+$app->get('/favicon.ico', function (Req $req, Res $res, array $args) use ($publicPath) {
+    $streamFactory = new Slim\Psr7\Factory\StreamFactory();
+    return $res->withBody(
+        $streamFactory->createStreamFromFile($publicPath . '/src/images/AVC-Logo.png')
+    );
+});
+
 $app->get('/', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
     return $renderer->render($res, 'index.php');

@@ -5,7 +5,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <a class="navbar-brand" href="https://www.facebook.com/groups/7061129270619986">
-                    <img src="public/src/images/AVC-Logo.png" alt="AVC Logo" width="64" height="64">
+                    <img src="/favicon.ico" alt="AVC Logo" width="64" height="64">
                     Alliance Volleyball Club
                 </a>
             </a>
