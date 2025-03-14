@@ -16,10 +16,13 @@ $app = AppFactory::create();
 
 $app->get('/favicon.ico', function (Req $req, Res $res, array $args) use ($publicPath) {
     $streamFactory = new Slim\Psr7\Factory\StreamFactory();
-    return $res->withBody(
-        $streamFactory->createStreamFromFile($publicPath . '/src/images/AVC-Logo.png')
-    );
+    return $res
+        ->withHeader('Content-Type', 'image/svg+xml') // Set proper SVG MIME type
+        ->withBody(
+            $streamFactory->createStreamFromFile($publicPath . '/src/images/AVC-Long-Logo.svg')
+        );
 });
+
 
 $app->get('/', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
