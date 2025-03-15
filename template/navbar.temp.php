@@ -40,7 +40,7 @@
                         <a class="nav-link <?= ($currentPage == '/about-us') ? 'active fw-bold' : ''; ?>" href="/about-us">About Us</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary shadow mb-3 mt-3" role="button" href="/open-gyms">Come Play!</a>
+                <a class="btn btn-primary shadow mb-3 mt-3" role="button" href="/open-gym">Come Play!</a>
             </div>
         </div>
     </nav>

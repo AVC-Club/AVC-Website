@@ -53,6 +53,11 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
     return $renderer->render($res, 'gallery.php');
 });
 
+$app->get('/open-gym', function (Req $req, Res $res) use ($publicPath) {
+    $renderer = new PhpRenderer($publicPath);
+    return $renderer->render($res, 'open-gym.php');
+});
+
 
 //* Expose images dir to public
 $app->get('/images/{file:.+}', function (Req $req, Res $res, array $args) use ($publicPath) {
@@ -110,7 +115,7 @@ function registerErrorHandlers($app, $publicPath)
 
         // Check if the error page exists, otherwise default to 500 page
         $errorPage = file_exists("$publicPath/errors/{$statusCode}.err.php") ? "errors/{$statusCode}.err.php" : "errors/500.err.php";
-        
+
         // Log the error page path
         error_log("Error page: " . $errorPage);
 

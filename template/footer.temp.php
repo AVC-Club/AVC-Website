@@ -12,7 +12,7 @@
                     <li><a class="link-light" href="/fixture-results">Fixtures &amp; Results</a></li>
                     <li><a class="link-light" href="/gallery">Gallery</a></li>
                     <li><a class="link-light" href="/teams">Our Teams</a></li>
-                    <li><a class="link-light" href="/open-gyms">Open Gyms</a></li>
+                    <li><a class="link-light" href="/open-gym">Open Gyms</a></li>
                 </ul>
             </div>
 
