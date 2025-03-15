@@ -43,7 +43,69 @@ $app->get('/committee', function (Req $req, Res $res) use ($publicPath) {
 
 $app->get('/fixture-results', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
-    return $renderer->render($res, 'fixture.php');
+
+    //? Temp data, will change once working on db 
+    $viewData =  [
+        'matches' => [
+            [
+                'title' => 'Week 1 (29/3)',
+                'header' => 'State League Three Men',
+                'team1' => 'Alliance Gold',
+                'team1_logo' => '/images/AVC-Logo.svg',
+                'team2' => 'Oakleigh Black',
+                'team2_logo' => 'https://lh5.googleusercontent.com/F33dlUuQlFNTPP2D9VK92aa-kLKK1zgPV7zYG207vKkKGleHOlFb5EtyxP8oJvet27uzPEKRUSB3iO1AONocSlY=w16383',
+                'score' => '0 - 0',
+                'venue' => 'Dandenong Stadium',
+                'time' => '4:35pm'
+            ],
+            [
+                'title' => 'Week 2 (5/4)',
+                'header' => 'State League Three Men',
+                'team1' => 'FVUM',
+                'team1_logo' => 'https://cdn.revolutionise.com.au/logos/zl3artogfpcp2lcn.jpg',
+                'team2' => 'Strive Volleyball',
+                'team2_logo' => 'https://cdn.revolutionise.com.au/logos/hclo8psdpouohbl7.png',
+                'score' => '1 - 2',
+                'venue' => 'Melbourne Stadium',
+                'time' => '6:00pm'
+            ],
+            [
+                'title' => 'Week 3 (12/4)',
+                'header' => 'State League Three Men',
+                'team1' => 'FVUM',
+                'team1_logo' => 'https://cdn.revolutionise.com.au/logos/zl3artogfpcp2lcn.jpg',
+                'team2' => 'Strive Volleyball',
+                'team2_logo' => 'https://cdn.revolutionise.com.au/logos/hclo8psdpouohbl7.png',
+                'score' => '1 - 2',
+                'venue' => 'Melbourne Stadium',
+                'time' => '6:00pm'
+            ],
+            [
+                'title' => 'Week 4 (22/4)',
+                'header' => 'State League Three Men',
+                'team1' => 'FVUM',
+                'team1_logo' => 'https://cdn.revolutionise.com.au/logos/zl3artogfpcp2lcn.jpg',
+                'team2' => 'VUVC',
+                'team2_logo' => 'https://cdn.revolutionise.com.au/logos/5xmswl1auqopunxe.jpg',
+                'score' => '4 - 1',
+                'venue' => 'Melbourne Stadium',
+                'time' => '4:00pm'
+            ],
+            [
+                'title' => 'Week 5 (30/4)',
+                'header' => 'State League Three Men',
+                'team1' => 'Alliance Gold',
+                'team1_logo' => '/images/AVC-Logo.svg',
+                'team2' => 'VUVC',
+                'team2_logo' => 'https://cdn.revolutionise.com.au/logos/5xmswl1auqopunxe.jpg',
+                'score' => '2 - 2',
+                'venue' => 'Melbourne Stadium',
+                'time' => '6:00pm'
+            ],
+        ]
+    ];
+
+    return $renderer->render($res, 'fixture.php', $viewData);
 });
 
 $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
@@ -56,6 +118,11 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
 $app->get('/open-gym', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
     return $renderer->render($res, 'open-gym.php');
+});
+
+$app->get('/about-us', function (Req $req, Res $res) use ($publicPath) {
+    $renderer = new PhpRenderer($publicPath);
+    return $renderer->render($res, 'about-us.php');
 });
 
 
@@ -95,7 +162,7 @@ $app->get('/images/{file:.+}', function (Req $req, Res $res, array $args) use ($
     }
 });
 
-// Register error handlers
+//* Register error handlers
 function registerErrorHandlers($app, $publicPath)
 {
     $errorMiddleware = $app->addErrorMiddleware(true, true, true);
