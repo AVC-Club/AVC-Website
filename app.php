@@ -46,6 +46,13 @@ $app->get('/fixture-results', function (Req $req, Res $res) use ($publicPath) {
     return $renderer->render($res, 'fixture.php');
 });
 
+$app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
+    $renderer = new PhpRenderer($publicPath);
+    // Will need to add photos
+
+    return $renderer->render($res, 'gallery.php');
+});
+
 
 //* Expose images dir to public
 $app->get('/images/{file:.+}', function (Req $req, Res $res, array $args) use ($publicPath) {
