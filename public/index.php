@@ -11,7 +11,7 @@ require(__DIR__ . '/../template/navbar.temp.php');
                     <span class="text-secondary">Proud to introduce</span>
                 </p>
                 <h1 class="fw-bold mb-4 text-white">Alliance Volleyball Club</h1>
-                <a href="/open-gym.html" class="btn btn-primary fs-5 me-2 py-2 px-4">
+                <a href="/open-gym" class="btn btn-primary fs-5 me-2 py-2 px-4">
                     Come Play!
                 </a>
             </div>

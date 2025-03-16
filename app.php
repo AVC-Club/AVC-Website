@@ -26,14 +26,14 @@ $app->get('/committee', function (Req $req, Res $res) use ($publicPath) {
     //? Temp data, will change once working on db 
     $viewData =  [
         'members' => [
-            ['name' => 'Paul Wong', 'role' => 'President', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Caleb Lau', 'role' => 'Vice President', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Eileen Zhang', 'role' => 'Secretary', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Chai Shean Ng', 'role' => 'Treasurer', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Winston Yu', 'role' => 'Assistant Treasurer', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Jie Zhou', 'role' => 'Assistant Treasurer', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Vanessa Do', 'role' => 'Social Media Manager', 'image' => '/images/generic-placeholder.jpg'],
-            ['name' => 'Nick Bowman', 'role' => 'General Committee', 'image' => '/images/generic-placeholder.jpg'],
+            ['name' => 'Paul Wong', 'role' => 'President', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Caleb Lau', 'role' => 'Vice President', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Eileen Zhang', 'role' => 'Secretary', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Chai Shean Ng', 'role' => 'Treasurer', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Winston Yu', 'role' => 'Assistant Treasurer', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jie Zhou', 'role' => 'Assistant Treasurer', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Vanessa Do', 'role' => 'Social Media Manager', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Nick Bowman', 'role' => 'General Committee', 'image' => '/images/generic-placeholder_user.jpg'],
         ]
     ];
 
@@ -117,7 +117,51 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
 
 $app->get('/open-gym', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
-    return $renderer->render($res, 'open-gym.php');
+
+    $sessions = ['data' => [
+        [
+            'title' => 'Wednesdays @ Waverley Christian College',
+            'description' => 'Shake off the midweek slump with some volleyball action. Open to all skill levels!',
+            'time' => '7:00 PM – 10:00 PM',
+            'price' => '$15 flat rate',
+            'location' => 'Waverley Christian College (Gate 3 & 4)',
+            'address' => '1248 High Street Road, Wantirna South, VIC, 3152',
+            'image' => 'images/generic-placeholder_court.jpg',
+            'alt' => 'white and red volleyball court aerial photo',
+        ],
+        [
+            'title' => 'Thursdays @ Waverley Christian College',
+            'description' => 'Perfect for those looking to squeeze in a session before dinner.',
+            'time' => '5:30 PM – 8:00 PM',
+            'price' => '$12 flat rate',
+            'location' => 'Waverley Christian College (Gate 3 & 4)',
+            'address' => '1248 High Street Road, Wantirna South, VIC, 3152',
+            'image' => 'images/generic-placeholder_court.jpg',
+            'alt' => 'white and red volleyball court aerial photo',
+        ],
+        [
+            'title' => 'Friday @ Templestowe College',
+            'description' => 'Start your weekend right with some solid rallies and good vibes.',
+            'time' => '7:00 PM – 10:00 PM',
+            'price' => '$15 flat rate',
+            'location' => 'Templestowe College',
+            'address' => '7 Cypress Ave, Templestowe Lower, VIC, 3107',
+            'image' => 'images/generic-placeholder_court.jpg',
+            'alt' => 'white and red volleyball court aerial photo',
+        ],
+        [
+            'title' => 'Saturdays @ Waverley Christian College',
+            'description' => 'A great way to get in some volleyball before your weekend plans.',
+            'time' => '11:15 AM – 1:30 PM',
+            'price' => '$12 flat rate',
+            'location' => 'Waverley Christian College (Gate 3 & 4)',
+            'address' => '1248 High Street Road, Wantirna South, VIC, 3152',
+            'image' => 'images/generic-placeholder_court.jpg',
+            'alt' => 'white and red volleyball court aerial photo',
+        ],
+    ]];
+
+    return $renderer->render($res, 'open-gym.php', $sessions);
 });
 
 $app->get('/about-us', function (Req $req, Res $res) use ($publicPath) {

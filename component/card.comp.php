@@ -16,13 +16,16 @@ class Card
 
             case 'fixtures':
                 return self::fixtureCard($data);
+
+            case 'sessionCards':
+                return self::sessionCard($data);
         }
     }
 
     private static function committeeCard($member)
     {
         // Default image if not provided
-        $imgPath = $member['image'] ?? '/images/generic-placeholder.jpg';
+        $imgPath = $member['image'] ?? '/images/generic-placeholder_user.jpg';
 
         return '
         <div class="col mb-4">
@@ -100,5 +103,40 @@ class Card
                 <div id="nav-tabContent" class="tab-content">' . $tabContent . '</div>
             </div>
         </div>';
+    }
+
+    private static function sessionCard($data)
+    {
+        if (!is_array($data)) {
+            return;
+        }
+
+        $output = '';
+
+        foreach ($data as $index => $session) {
+            $imageOrderClass = $index % 2 !== 0 ? 'order-md-last' : '';
+
+            $output .= '
+            <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+                <div class="col ' . $imageOrderClass . ' mb-5">
+                    <img class="rounded img-fluid shadow" alt="' . htmlspecialchars($session['alt']) . '" src="' . htmlspecialchars($session['image']) . '">
+                </div>
+                <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
+                    <div>
+                        <h5 class="fw-bold">' . htmlspecialchars($session['title']) . '</h5>
+                        <p class="text-muted mb-4">
+                            ' . nl2br(htmlspecialchars($session['description'])) . '<br>
+                            ⌛ <strong>' . htmlspecialchars($session['time']) . '</strong><br>
+                            💰 <strong>' . htmlspecialchars($session['price']) . '</strong><br>
+                            📍 <strong>' . htmlspecialchars($session['location']) . '</strong><br>
+                            ' . htmlspecialchars($session['address']) . '
+                        </p>
+                        <button class="btn btn-primary shadow" type="button">Maps</button>
+                    </div>
+                </div>
+            </div>';
+        }
+
+        return $output;
     }
 }
