@@ -5,7 +5,7 @@ require(__DIR__ . '/../template/header.temp.php');
 require(__DIR__ . '/../template/navbar.temp.php');
 ?>
 
-<h1 class="fw-bold mb-2">Open Gym</h1>
+<h1 class="text-primary fw-bold mb-2">Open Gym</h1>
 <p class="text-muted pb-4">
     Sometimes you just want to play volleyball, but organizing a court and gathering enough friends can feel like a hassle. <br>
     We've got you covered. Open gym is perfect for those who want to play casually and connect with others who love the game.<br>

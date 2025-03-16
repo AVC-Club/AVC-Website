@@ -1,0 +1,87 @@
+/* Bootstrap 5 Custom Theme */
+
+:root {
+  --bs-primary: #b38f14; /* Darkened for better contrast */
+  --bs-secondary: #1d222d; /* Slightly lighter for a softer look */
+  --bs-link-color: #e6d000; /* Less harsh yellow */
+  --bs-link-hover-color: #d1b300; /* Darker hover for clarity */
+  --bs-body-text: #333333; /* Dark text for body */
+  --bs-heading-text: #000000; /* Strong text for headings */
+  --bs-muted-text: #6c757d; /* Muted text for secondary content */
+}
+
+/* Override Bootstrap default button colors */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+  background-color: #9a7e12; /* Slightly darker hover */
+  border-color: #8c7010;
+}
+
+.btn-secondary {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+
+.btn-secondary:hover {
+  background-color: #161a23; /* Darker hover */
+  border-color: #10141d;
+}
+
+/* Links */
+a {
+  color: var(--bs-link-color);
+}
+
+a:hover {
+  color: var(--bs-link-hover-color);
+}
+
+/* Backgrounds */
+.bg-primary {
+  background-color: var(--bs-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--bs-secondary) !important;
+}
+
+/* Apply custom styles */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-text); /* Body text color */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--bs-heading-text); /* Stronger color for headings */
+}
+
+/* Muted text */
+.text-muted {
+  color: var(--bs-muted-text) !important; /* Lighter text for less important elements */
+}
+
+/* Custom text color classes */
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+
+.text-secondary {
+  color: var(--bs-secondary) !important;
+}
+
+.text-link {
+  color: var(--bs-link-color) !important;
+}
+
+.text-link:hover {
+  color: var(--bs-link-hover-color) !important;
+}
+
+.text-muted {
+  color: var(--bs-muted-text) !important;
+}

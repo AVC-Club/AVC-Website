@@ -31,7 +31,7 @@ class Card
         <div class="col mb-4">
             <div class="text-center">
                 <img class="rounded mb-3 fit-cover" width="150" height="150" src="' . htmlspecialchars($imgPath) . '" alt="' . htmlspecialchars($member['name']) . ' - ' . htmlspecialchars($member['role']) . '">
-                <h5 class="fw-bold mb-0">' . htmlspecialchars($member['name']) . '</h5>
+                <h5 class="text-white fw-bold mb-0">' . htmlspecialchars($member['name']) . '</h5>
                 <p class="text-muted mb-2">' . htmlspecialchars($member['role']) . '</p>
             </div>
         </div>
@@ -65,21 +65,21 @@ class Card
             // Tab Content with Match Template
             $tabContent .= '
                 <div id="' . $id . '" class="tab-pane fade show ' . $activeClass . '" role="tabpanel" aria-labelledby="' . $id . '-tab">
-                    <h4 class="text-center"><strong>' . htmlspecialchars($tab['header']) . '</strong></h4>
+                    <h4 class="text-center text-white"><strong>' . htmlspecialchars($tab['header']) . '</strong></h4>
                     <div class="col-md-8 col-xl-6 col-xxl-6 offset-xxl-10 d-xxl-flex mx-auto justify-content-xxl-center p-4">
                         <div class="d-flex align-items-center align-items-md-start align-items-xl-center">
-                            <h4 style="font-size: 20px;text-align: center;">
+                            <h4 class="text-white">
                                 <strong>' . htmlspecialchars($tab['team1']) . '</strong><br>
                                 <img src="' . htmlspecialchars($tab['team1_logo']) . '" style="width: 100px;" width="100" height="100">
                             </h4>
                             <p class="d-flex justify-content-center justify-content-xxl-center" style="font-size: 5vw;padding: 3px;width: 100%;">' . htmlspecialchars($tab['score']) . '</p>
-                            <h4 style="font-size: 20px;text-align: center;">
+                            <h4 class="text-white">
                                 <strong>' . htmlspecialchars($tab['team2']) . '</strong><br>
                                 <img src="' . htmlspecialchars($tab['team2_logo']) . '" style="width: 100px;" width="100" height="100">
                             </h4>
                         </div>
                     </div>
-                    <p class="text-center" style="font-size: 1rem;">
+                    <p class="text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" style="color: rgb(239,0,0);margin: 2px;">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.05025 4.05025C7.78392 1.31658 12.2161 1.31658 14.9497 4.05025C17.6834 6.78392 17.6834 11.2161 14.9497 13.9497L10 18.8995L5.05025 13.9497C2.31658 11.2161 2.31658 6.78392 5.05025 4.05025ZM10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z" fill="currentColor"></path>
                         </svg>' . htmlspecialchars($tab['venue']) . '<br>
