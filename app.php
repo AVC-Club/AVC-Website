@@ -176,72 +176,63 @@ $app->get('/about-us', function (Req $req, Res $res) use ($publicPath) {
 });
 
 
-//* Expose images dir to public
-$app->get('/images/{file:.+}', function (Req $req, Res $res, array $args) use ($publicPath) {
-    // Construct the file path
-    $filePath = $publicPath . '/src/images/' . $args['file'];
+//* Expose src dir to public
+$app->get('/{type:images|css|js|fonts}/{file:.+}', function (Req $req, Res $res, array $args) use ($publicPath) {
+    // Define base paths for different resource types
+    $basePaths = [
+        'images' => $publicPath . '/src/images/',
+        'css'    => $publicPath . '/src/css/',
+        'js'     => $publicPath . '/src/js/',
+        'fonts'  => $publicPath . '/src/fonts/',
+    ];
 
-    // Log the file path to ensure it's correct
+    $type = $args['type'];
+    $filePath = $basePaths[$type] . $args['file'];
+
+    // Log the requested file path
     error_log("Requested file path: " . $filePath);
 
     // Check if the file exists and is readable
     if (file_exists($filePath) && is_readable($filePath)) {
         try {
-            // Create a stream for the file
             $streamFactory = new Slim\Psr7\Factory\StreamFactory();
             $stream = $streamFactory->createStreamFromFile($filePath);
 
-            // Get the file's MIME type
-            $mimeType = mime_content_type($filePath);
+            // Explicitly set MIME types for common formats
+            $mimeTypes = [
+                'css'  => 'text/css',
+                'js'   => 'application/javascript',
+                'jpg'  => 'image/jpeg',
+                'jpeg' => 'image/jpeg',
+                'png'  => 'image/png',
+                'gif'  => 'image/gif',
+                'svg'  => 'image/svg+xml',
+                'woff' => 'font/woff',
+                'woff2'=> 'font/woff2',
+                'ttf'  => 'font/ttf',
+                'otf'  => 'font/otf',
+            ];
 
-            // Log the MIME type for debugging
-            error_log("MIME type: " . $mimeType);
+            // Get file extension
+            $ext = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
 
+            // Determine MIME type
+            $mimeType = $mimeTypes[$ext] ?? mime_content_type($filePath) ?: 'application/octet-stream';
+
+            // Set correct content-type header
             return $res
                 ->withHeader('Content-Type', $mimeType)
                 ->withBody($stream);
         } catch (Exception $e) {
-            // Log any exceptions that occur while handling the file
             error_log("Error handling file: " . $e->getMessage());
             return $res->withStatus(500);
         }
     } else {
-        // If file doesn't exist or is not readable, log the error and return 404
         error_log("File not found or not readable: " . $filePath);
         return $res->withStatus(404);
     }
 });
 
-//* Expose CSS dir to public
-$app->get('/css/{file:.+}', function (Req $req, Res $res, array $args) use ($publicPath) {
-    // Construct the file path
-    $filePath = $publicPath . '/src/css/' . $args['file'];
-
-    // Log the file path to ensure it's correct
-    error_log("Requested file path: " . $filePath);
-
-    // Check if the file exists and is readable
-    if (file_exists($filePath) && is_readable($filePath)) {
-        try {
-            // Create a stream for the file
-            $streamFactory = new Slim\Psr7\Factory\StreamFactory();
-            $stream = $streamFactory->createStreamFromFile($filePath);
-
-            // Since it's a CSS file, we set the MIME type to "text/css"
-            return $res
-                ->withHeader('Content-Type', 'text/css')
-                ->withBody($stream);
-        } catch (Exception $e) {
-            // Log any exceptions that occur while handling the file
-            error_log("Error handling file: " . $e->getMessage());
-            return $res->withStatus(500);
-        }
-    } else {
-        // If file doesn't exist or is not readable, log the error and return 404
-        error_log("File not found or not readable: " . $filePath);
-        return $res->withStatus(404);
-    }
-});
 
 //* Register error handlers
 function registerErrorHandlers($app, $publicPath)
