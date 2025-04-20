@@ -85,3 +85,38 @@ h1, h2, h3, h4, h5, h6 {
 .text-muted {
   color: var(--bs-muted-text) !important;
 }
+
+/* Index Gallery */
+#avc-collage {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .5rem;
+}
+
+#avc-collage .avc-img-1 {
+  flex: 0 0 45%;
+  transform: translate(-15%, 35%);
+}
+
+#avc-collage .avc-img-2 {
+  flex: 0 0 45%;
+  transform: translate(-5%, 20%);
+}
+
+#avc-collage .avc-img-3 {
+  flex: 0 0 60%;
+  transform: translate(0, 0%);
+}
+
+@media (max-width:575.98px) {
+  #avc-collage {
+      justify-content: center;
+  }
+
+  #avc-collage .avc-img {
+      flex: 0 0 100%;
+      transform: none;
+  }
+}

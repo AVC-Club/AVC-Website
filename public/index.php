@@ -18,11 +18,23 @@ require(__DIR__ . '/../template/navbar.temp.php');
         </section>
     </div>
     <div class="col">
-        <!-- IMAGES GOES HERE -->
+        <div class="col">
+            <div id="avc-collage">
+                <figure class="avc-img avc-img-1">
+                    <img src="images/_temps/Gallery/240817%20AVC%20SL2MG%20SF-85.jpg" class="img-fluid rounded-3" alt="Player celebrates at the net">
+                </figure>
+
+                <figure class="avc-img avc-img-2">
+                    <img src="images/_temps/Gallery/240817%20AVC%20SL2MG%20SF-69.jpg" class="img-fluid rounded-3" alt="Team huddle">
+                </figure>
+
+                <figure class="avc-img avc-img-3">
+                    <img src="images/_temps/Gallery/_DSC1659.jpg" class="img-fluid rounded-3" style="max-height:300px;object-fit:cover;" alt="Jump block">
+                </figure>
+            </div>
+        </div>
     </div>
 </div>
-
-
 
 <?php
 require(__DIR__ . '/../template/footer.temp.php');
