@@ -5,7 +5,7 @@ require(__DIR__ . '/../template/header.temp.php');
 require(__DIR__ . '/../template/navbar.temp.php');
 ?>
 
-<h1 class="text-primary">Values</h1>
+<p class="text-primary mb-2 display-1">Values</p>
 <h4 class="text-white">
     Established with a passion for the game <br>
     and a vision for growth, we aim to build a <br>

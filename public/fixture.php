@@ -5,7 +5,7 @@ require(__DIR__ . '/../template/header.temp.php');
 require(__DIR__ . '/../template/navbar.temp.php');
 ?>
 
-<h1 class="text-primary fw-bold mb-2">Upcoming Games</h1>
+<p class="text-primary mb-2 display-1">Upcoming Games</p>
 <p class="text-muted pb-4">Come support our teams and see how we are going each week!</p>
 
 <?php
