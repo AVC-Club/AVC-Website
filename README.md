@@ -80,7 +80,7 @@ composer require slim/php-view
 
 ### 4. Start the Development Server
 ```sh
-php -S localhost:8000 -t public
+php -S localhost:8888 app.php
 ```
 
 ### 5. Access the Website
