@@ -110,9 +110,68 @@ $app->get('/fixture-results', function (Req $req, Res $res) use ($publicPath) {
 
 $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
-    // Will need to add photos
 
-    return $renderer->render($res, 'gallery.php');
+    $viewData = [
+        [
+            'year'  => 2025,
+            'items' => [
+                [
+                    'href'         => 'album/2025/Grand Final - Mixed-6.html',
+                    'image'        => '/images/_temps/Gallery/_DSC1659.jpg',
+                    'title'        => 'Grand Final - Mixed-6',
+                    'description'  => 'Highlights from the 2025 mixed-6 grand final.',
+                    'photographer' => 'Jack McKoiw'
+                ],
+                [
+                    'href'         => 'album/2025/Winter Cup.html',
+                    'image'        => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                    'title'        => 'Winter Cup',
+                    'description'  => 'Snapshots from the annual Winter Cup.',
+                    'photographer' => 'Emily Tran'
+                ]
+            ],
+        ],
+        [
+            'year'  => 2024,
+            'items' => [
+                [
+                    'href'         => 'album/2025/Grand Final - Mixed-6.html',
+                    'image'        => '/images/_temps/Gallery/_DSC1659.jpg',
+                    'title'        => 'Grand Final - Mixed-6',
+                    'description'  => 'Highlights from the 2025 mixed-6 grand final.',
+                    'photographer' => 'Jack McKoiw'
+                ],
+                [
+                    'href'         => 'album/2025/Winter Cup.html',
+                    'image'        => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                    'title'        => 'Winter Cup',
+                    'description'  => 'Snapshots from the annual Winter Cup.',
+                    'photographer' => 'Emily Tran'
+                ]
+            ],
+        ],
+        [
+            'year'  => 2023,
+            'items' => [
+                [
+                    'href'         => 'album/2025/Grand Final - Mixed-6.html',
+                    'image'        => '/images/_temps/Gallery/_DSC1659.jpg',
+                    'title'        => 'Grand Final - Mixed-6',
+                    'description'  => 'Highlights from the 2025 mixed-6 grand final.',
+                    'photographer' => 'Jack McKoiw'
+                ],
+                [
+                    'href'         => 'album/2025/Winter Cup.html',
+                    'image'        => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                    'title'        => 'Winter Cup',
+                    'description'  => 'Snapshots from the annual Winter Cup.',
+                    'photographer' => 'Emily Tran'
+                ]
+            ],
+        ],
+    ];
+
+    return $renderer->render($res, 'gallery.php', $viewData);
 });
 
 $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
@@ -208,7 +267,7 @@ $app->get('/{type:images|css|js|fonts}/{file:.+}', function (Req $req, Res $res,
                 'gif'  => 'image/gif',
                 'svg'  => 'image/svg+xml',
                 'woff' => 'font/woff',
-                'woff2'=> 'font/woff2',
+                'woff2' => 'font/woff2',
                 'ttf'  => 'font/ttf',
                 'otf'  => 'font/otf',
             ];

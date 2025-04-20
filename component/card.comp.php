@@ -19,6 +19,9 @@ class Card
 
             case 'sessionCards':
                 return self::sessionCard($data);
+
+            case 'albumCarousel':
+                return self::albumCarousel($data);
         }
     }
 
@@ -123,7 +126,7 @@ class Card
                 </div>
                 <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                     <div>
-                        <h5 class="fw-bold">' . htmlspecialchars($session['title']) . '</h5>
+                        <h5 class="fw-bold text-white">' . htmlspecialchars($session['title']) . '</h5>
                         <p class="text-muted mb-4">
                             ' . nl2br(htmlspecialchars($session['description'])) . '<br>
                             ⌛ <strong>' . htmlspecialchars($session['time']) . '</strong><br>
@@ -135,6 +138,57 @@ class Card
                     </div>
                 </div>
             </div>';
+        }
+
+        return $output;
+    }
+
+    private static function albumCarousel(array $data): string
+    {
+        $output = '';
+
+        foreach ($data as $container) {
+            /** Guard against malformed items */
+            if (!isset($container['year'], $container['items']) || !is_array($container['items'])) {
+                continue;
+            }
+
+            $year       = (int) $container['year'];
+            $carouselId = htmlspecialchars($year . '-Album');   // id / class safe
+
+            $output .= '
+            <div class="container mb-2">
+                <p class="text-white display-5 pb-2 mt-5">' . $year . ' Albums</p>
+
+                <div class="' . $carouselId . ' owl-carousel owl-theme">';
+
+            foreach ($container['items'] as $item) {
+                // defaults
+                $imgPath      = $item['image']        ?? '/images/generic-placeholder.jpg';
+                $href         = $item['href']         ?? '#';
+                $title        = $item['title']        ?? 'Untitled';
+                $description  = $item['description']  ?? '';
+                $photographer = $item['photographer'] ?? 'Unknown';
+
+                $output .= '
+                    <div class="card" style="width: 18rem;">
+                        <a href="' . htmlspecialchars($href) . '" class="stretched-link text-decoration-none">
+                            <div class="ratio ratio-16x9">
+                                <img src="' . htmlspecialchars($imgPath) . '" class="card-img-top object-fit-cover" alt="' . htmlspecialchars($title) . ' image">
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title text-white">' . htmlspecialchars($title) . '</h5>
+                                <p class="card-text text-white">' . htmlspecialchars($description) . '</p>
+                                <p class="card-text text-white">Taken By: <em>' . htmlspecialchars($photographer) . '</em></p>
+                            </div>
+                        </a>
+                    </div>';
+            }
+
+            $output .= '
+                </div> <!-- /.owl-carousel -->
+            </div>';      // /.container
         }
 
         return $output;
