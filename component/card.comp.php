@@ -143,8 +143,12 @@ class Card
         return $output;
     }
 
-    private static function albumCarousel(array $data): string
+    private static function albumCarousel(array $data)
     {
+        if (!is_array($data)) {
+            return;
+        }
+
         $output = '';
 
         foreach ($data as $container) {
