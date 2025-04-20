@@ -7,8 +7,8 @@ require(__DIR__ . '/../template/navbar.temp.php');
 <p class="text-primary mb-2 display-1">Memories</p>
 <p class="text-muted pb-4">Explore stunning photos taken by talented photographers during our State League journey</p>
 
-//! CARD VIEW ON MOBILE IS MISALIGNED
 <?php
+//! CARD VIEW ON MOBILE IS MISALIGNED
 echo Card::display('albumCarousel', $data);
 ?>
 
