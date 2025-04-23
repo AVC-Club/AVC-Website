@@ -120,17 +120,15 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
                     'image'        => '/images/_temps/Gallery/Alliance-Res-3-Gold-Mens-66.jpg',
                     'title'        => '12.4 - RM3 Gold vs Derrimut Knights',
                     'description'  => 'Highlights taken from the 5 set thriller between RM3 Gold and Derrimut Knights.',
-                    'photographer' => 'Miguel Andoko'
-                    // Link to https://avc55.pixieset.com/alliancegoldsl3mround3againstdk/
+                    'photographer' => 'Brandon Lee'
                 ],
                 [
                     'href'         => 'https://avc55.pixieset.com/avcrm1blackvsdandenong/',
                     'image'        => '/images/_temps/Gallery/Alliance-Res-1-Black-Womens-15.jpg',
                     'title'        => '12.4 - RW1 Black vs Dandenong',
                     'description'  => 'Snapshots taken from the 5 set match between RW1 Black and Dandenong.',                    
-                    'photographer' => 'Gabriel'
+                    'photographer' => 'Gabriel Aditya'
                 ],
-                // RM3 Black vs Carrum Downs Royal
                 [
                     'href'         => 'https://avc55.pixieset.com/avcrm3blackvscarrumdownsroyal/',
                     'image'        => '/images/_temps/Gallery/Alliance-Res-3-Black-Mens-8.jpg', 
@@ -166,9 +164,85 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
 
 $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
+    // Fix links later when we have the actual pages
+    
 
-    return $renderer->render($res, 'our-teams.php');
+    $viewData = [
+        [
+            'name'      => 'Alliance Gold SL1M',
+            'image'     => 'assets/img/Gallery/240817 AVC SL2MG SF-18.jpg',
+            'link'      => 'avc-sl1m-gold.html',
+        ],
+        [
+            'name'      => 'Alliance Black SL1M',
+            'image'     => 'assets/img/Gallery/240803 AVC SL2M G-127.jpg',
+            'link'      => 'avc-sl1m-black.html',
+        ],
+        [
+            'name'      => 'Alliance Gold SL2M',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg', 
+            'link'      => 'avc-sl2m-gold.html',
+        ],
+        [
+            'name'      => 'Alliance Black SL2M',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl2m-black.html',
+        ],
+        [
+            'name'      => 'Alliance White SL2M',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl2m-white.html',
+        ],
+        [
+            'name'      => 'Alliance Gold SL3M',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl3m-gold.html',
+        ],
+        [
+            'name'      => 'Alliance Black SL3M',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl3m-black.html',
+        ],
+        [
+            'name'      => 'Alliance Gold SL1W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl1w-gold.html',
+        ],
+        [
+            'name'      => 'Alliance Black SL1W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl1w-black.html',
+        ],
+        [
+            'name'      => 'Alliance Gold SL2W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl2w-gold.html',
+        ],
+        [
+            'name'      => 'Alliance Black SL2W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl2w-black.html',
+        ],
+        [
+            'name'      => 'Alliance White SL2W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl2w-white.html',
+        ],
+        [
+            'name'      => 'Alliance Gold SL3W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl3w-gold.html',
+        ],
+        [
+            'name'      => 'Alliance Black SL3W',
+            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+            'link'      => 'avc-sl3w-black.html',
+        ],
+    ];
+
+    return $renderer->render($res, 'our-teams.php', $viewData);
 });
+
 
 $app->get('/open-gym', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
