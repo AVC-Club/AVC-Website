@@ -116,42 +116,32 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
             'year'  => 2025,
             'items' => [
                 [
-                    'href'         => 'album/2025/Grand Final - Mixed-6.html',
-                    'image'        => '/images/_temps/Gallery/_DSC1659.jpg',
-                    'title'        => 'Grand Final - Mixed-6',
-                    'description'  => 'Highlights from the 2025 mixed-6 grand final.',
-                    'photographer' => 'Jack McKoiw'
+                    'href'         => 'https://avc55.pixieset.com/alliancegoldsl3mround3againstdk/',
+                    'image'        => '/images/_temps/Gallery/Alliance-Res-3-Gold-Mens-66.jpg',
+                    'title'        => '12.4 - RM3 Gold vs Derrimut Knights',
+                    'description'  => 'Highlights taken from the 5 set thriller between RM3 Gold and Derrimut Knights.',
+                    'photographer' => 'Miguel Andoko'
+                    // Link to https://avc55.pixieset.com/alliancegoldsl3mround3againstdk/
                 ],
                 [
-                    'href'         => 'album/2025/Winter Cup.html',
-                    'image'        => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-                    'title'        => 'Winter Cup',
-                    'description'  => 'Snapshots from the annual Winter Cup.',
-                    'photographer' => 'Emily Tran'
+                    'href'         => 'https://avc55.pixieset.com/avcrm1blackvsdandenong/',
+                    'image'        => '/images/_temps/Gallery/Alliance-Res-1-Black-Womens-15.jpg',
+                    'title'        => '12.4 - RW1 Black vs Dandenong',
+                    'description'  => 'Snapshots taken from the 5 set match between RW1 Black and Dandenong.',                    
+                    'photographer' => 'Gabriel'
+                ],
+                // RM3 Black vs Carrum Downs Royal
+                [
+                    'href'         => 'https://avc55.pixieset.com/avcrm3blackvscarrumdownsroyal/',
+                    'image'        => '/images/_temps/Gallery/Alliance-Res-3-Black-Mens-8.jpg', 
+                    'title'        => '12.4 - RM3 Black vs Carrum Downs Royal',
+                    'description'  => 'Photos captured from the match between RM3 Black and Carrum Downs Royal.',
+                    'photographer' => 'Gabriel Aditya'
                 ]
             ],
         ],
         [
             'year'  => 2024,
-            'items' => [
-                [
-                    'href'         => 'album/2025/Grand Final - Mixed-6.html',
-                    'image'        => '/images/_temps/Gallery/_DSC1659.jpg',
-                    'title'        => 'Grand Final - Mixed-6',
-                    'description'  => 'Highlights from the 2025 mixed-6 grand final.',
-                    'photographer' => 'Jack McKoiw'
-                ],
-                [
-                    'href'         => 'album/2025/Winter Cup.html',
-                    'image'        => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-                    'title'        => 'Winter Cup',
-                    'description'  => 'Snapshots from the annual Winter Cup.',
-                    'photographer' => 'Emily Tran'
-                ]
-            ],
-        ],
-        [
-            'year'  => 2023,
             'items' => [
                 [
                     'href'         => 'album/2025/Grand Final - Mixed-6.html',
