@@ -142,11 +142,11 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
             'year'  => 2024,
             'items' => [
                 [
-                    'href'         => 'album/2025/Grand Final - Mixed-6.html',
-                    'image'        => '/images/_temps/Gallery/_DSC1659.jpg',
-                    'title'        => 'Grand Final - Mixed-6',
-                    'description'  => 'Highlights from the 2025 mixed-6 grand final.',
-                    'photographer' => 'Jack McKoiw'
+                    'href'         => 'https://avc55.pixieset.com/avcrm1goldvsderrimutknights/',
+                    'image'        => '/images/_temps/Gallery/Alliance-Res-1-Gold-Mens-Quarter-Finals-5.jpg',
+                    'title'        => '10.8 - RM1 Gold vs Derrimut Knights',
+                    'description'  => 'Highlights from the 2024 Quarter Finals match between RM1 Gold and Derrimut Knights.',
+                    'photographer' => 'Isaac Ho'
                 ],
                 [
                     'href'         => 'album/2025/Winter Cup.html',
