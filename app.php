@@ -126,12 +126,12 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
                     'href'         => 'https://avc55.pixieset.com/avcrm1blackvsdandenong/',
                     'image'        => '/images/_temps/Gallery/Alliance-Res-1-Black-Womens-15.jpg',
                     'title'        => '12.4 - RW1 Black vs Dandenong',
-                    'description'  => 'Snapshots taken from the 5 set match between RW1 Black and Dandenong.',                    
+                    'description'  => 'Snapshots taken from the 5 set match between RW1 Black and Dandenong.',
                     'photographer' => 'Gabriel Aditya'
                 ],
                 [
                     'href'         => 'https://avc55.pixieset.com/avcrm3blackvscarrumdownsroyal/',
-                    'image'        => '/images/_temps/Gallery/Alliance-Res-3-Black-Mens-8.jpg', 
+                    'image'        => '/images/_temps/Gallery/Alliance-Res-3-Black-Mens-8.jpg',
                     'title'        => '12.4 - RM3 Black vs Carrum Downs Royal',
                     'description'  => 'Photos captured from the match between RM3 Black and Carrum Downs Royal.',
                     'photographer' => 'Gabriel Aditya'
@@ -164,8 +164,6 @@ $app->get('/gallery', function (Req $req, Res $res) use ($publicPath) {
 
 $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
     $renderer = new PhpRenderer($publicPath);
-    // Fix links later when we have the actual pages
-    
 
     $teams = [
         'Men' => ['SL1M' => ['Gold', 'Black'], 'SL2M' => ['Gold', 'Black', 'White'], 'SL3M' => ['Gold', 'Black']],
