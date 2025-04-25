@@ -22,6 +22,9 @@ class Card
 
             case 'albumCarousel':
                 return self::albumCarousel($data);
+
+            case 'teamsTable':
+                return self::teamsTable($data);
         }
     }
 
@@ -195,6 +198,103 @@ class Card
             </div>';      // /.container
         }
 
+        return $output;
+    }
+
+    private static function teamsTable(array $data)
+    {
+        if (!is_array($data)) {
+            return;
+        }
+    
+        $navTabs    = '';
+        $tabContent = '';
+        $isFirst    = true;
+    
+        foreach ($data as $groupKey => $teams) {
+    
+            if (!is_array($teams)) {
+                continue;
+            }
+    
+            $paneId       = htmlspecialchars($groupKey . '-pane');
+            $tabActive    = $isFirst ? 'active' : '';
+            $ariaSelected = $isFirst ? 'true'  : 'false';
+            $groupLabel   = ucfirst($groupKey) . ' Teams';
+    
+            $navTabs .= '
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link ' . $tabActive . '"
+                            id="' . htmlspecialchars($groupKey) . '-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#' . $paneId . '"
+                            type="button"
+                            role="tab"
+                            aria-controls="' . $paneId . '"
+                            aria-selected="' . $ariaSelected . '">'
+                        . $groupLabel .
+                    '</button>
+                </li>';
+    
+            $cards = '';
+    
+            foreach ($teams as $team) {
+                $name = htmlspecialchars($team['name']  ?? '');
+                $img  = htmlspecialchars($team['image'] ?? '/images/generic-placeholder.jpg');
+                $href = htmlspecialchars($team['link']  ?? '#');
+    
+                $cards .= '
+                    <div class="col">
+                        <a href="' . $href . '" class="text-decoration-none">
+                            <div class="card h-100 shadow-sm">
+                                <div class="ratio ratio-16x9">
+                                    <img src="' . $img . '" class="card-img-top object-fit-cover" alt="' . $name . '">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold text-light mb-0">' . $name . '</h6>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 text-center pb-3">
+                                    <span class="btn btn-sm btn-primary">View More</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>';
+            }
+    
+            if ($cards === '') {
+                $cards = '<p class="text-muted text-center">No teams found.</p>';
+            } else {
+                $cards = '
+                    <div class="row row-cols-1 row-cols-sm-2
+                                row-cols-md-3 row-cols-lg-4 g-4">
+                        ' . $cards . '
+                    </div>';
+            }
+    
+            $paneActive = $isFirst ? 'show active' : '';
+            $headerTxt  = ($groupKey === 'mens' ? "Men's" : "Women's") . ' State League Teams';
+    
+            $tabContent .= '
+                <div class="tab-pane fade ' . $paneActive . '"
+                     id="' . $paneId . '"
+                     role="tabpanel"
+                     aria-labelledby="' . htmlspecialchars($groupKey) . '-tab"
+                     tabindex="0">
+                    <h4 class="text-center text-light mb-3">' . $headerTxt . '</h4>
+                    ' . $cards . '
+                </div>';
+    
+            $isFirst = false;
+        }
+    
+        $output  = '
+        <div class="container pt-4">
+            <ul class="nav nav-pills justify-content-center mb-4"
+                id="teamTab" role="tablist">' . $navTabs . '</ul>
+    
+            <div class="tab-content" id="teamTabContent">' . $tabContent . '</div>
+        </div>';
+    
         return $output;
     }
 }
