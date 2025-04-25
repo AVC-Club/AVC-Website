@@ -4,7 +4,6 @@ include_once(__DIR__ . '/../component/card.comp.php');
 require(__DIR__ . '/../template/header.temp.php');
 require(__DIR__ . '/../template/navbar.temp.php');
 
-// Get data from app.php
 ?>
 
 <p class="text-primary mb-2 display-1">Our Teams</p>
