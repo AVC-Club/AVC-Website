@@ -2,7 +2,6 @@
 require(__DIR__ . '/../template/header.temp.php');
 require(__DIR__ . '/../template/navbar.temp.php');
 
-// Get data from app.php
 ?>
 
 <div class="container pt-4">
