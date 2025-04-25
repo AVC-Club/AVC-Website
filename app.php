@@ -167,80 +167,30 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
     // Fix links later when we have the actual pages
     
 
-    $viewData = [
-        [
-            'name'      => 'Alliance Gold SL1M',
-            'image'     => 'assets/img/Gallery/240817 AVC SL2MG SF-18.jpg',
-            'link'      => 'avc-sl1m-gold.html',
-        ],
-        [
-            'name'      => 'Alliance Black SL1M',
-            'image'     => 'assets/img/Gallery/240803 AVC SL2M G-127.jpg',
-            'link'      => 'avc-sl1m-black.html',
-        ],
-        [
-            'name'      => 'Alliance Gold SL2M',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg', 
-            'link'      => 'avc-sl2m-gold.html',
-        ],
-        [
-            'name'      => 'Alliance Black SL2M',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl2m-black.html',
-        ],
-        [
-            'name'      => 'Alliance White SL2M',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl2m-white.html',
-        ],
-        [
-            'name'      => 'Alliance Gold SL3M',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl3m-gold.html',
-        ],
-        [
-            'name'      => 'Alliance Black SL3M',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl3m-black.html',
-        ],
-        [
-            'name'      => 'Alliance Gold SL1W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl1w-gold.html',
-        ],
-        [
-            'name'      => 'Alliance Black SL1W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl1w-black.html',
-        ],
-        [
-            'name'      => 'Alliance Gold SL2W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl2w-gold.html',
-        ],
-        [
-            'name'      => 'Alliance Black SL2W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl2w-black.html',
-        ],
-        [
-            'name'      => 'Alliance White SL2W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl2w-white.html',
-        ],
-        [
-            'name'      => 'Alliance Gold SL3W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl3w-gold.html',
-        ],
-        [
-            'name'      => 'Alliance Black SL3W',
-            'image'     => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
-            'link'      => 'avc-sl3w-black.html',
-        ],
+    $teams = [
+        'Men' => ['SL1M' => ['Gold', 'Black'], 'SL2M' => ['Gold', 'Black', 'White'], 'SL3M' => ['Gold', 'Black']],
+        'Women' => ['SL1W' => ['Gold', 'Black'], 'SL2W' => ['Gold', 'Black', 'White'], 'SL3W' => ['Gold', 'Black']],
     ];
+    
+    $viewData = [];
+    
+    foreach ($teams as $gender => $divisions) {
+        $items = [];
+        foreach ($divisions as $division => $colors) {
+            foreach ($colors as $color) {
+                $slug = strtolower("avc-{$division}-" . strtolower($color));
+                $items[] = [
+                    'name' => "Alliance {$color} {$division}",
+                    'image' => 'assets/img/Gallery/240624 AVC SL2M G Grand Finals-35.jpg', // placeholder
+                    'link' => "{$slug}.html",
+                ];
+            }
+        }
+        $viewData[] = ['gender' => $gender, 'items' => $items];
+    }
+    
+    return $renderer->render($res, 'our-teams.php', ['teams' => $viewData]);
 
-    return $renderer->render($res, 'our-teams.php', $viewData);
 });
 
 
