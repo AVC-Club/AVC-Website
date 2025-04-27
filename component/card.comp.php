@@ -25,6 +25,9 @@ class Card
 
             case 'teamsTable':
                 return self::teamsTable($data);
+
+            case 'teamRoster':
+                return self::teamRoster($data);
         }
     }
 
@@ -297,4 +300,45 @@ class Card
     
         return $output;
     }
+
+    private static function teamRoster(array $data)
+{
+    if (!isset($data['team']) || !is_array($data['team'])) {
+        return '<p class="text-muted text-center">Roster not available.</p>';
+    }
+
+    $cards = '';
+
+    foreach ($data['team'] as $member) {
+        $name     = htmlspecialchars($member['name'] ?? '');
+        $role     = htmlspecialchars($member['position'] ?? '');
+        $number   = htmlspecialchars($member['number'] ?? '');
+        $img      = htmlspecialchars($member['image'] ?? '/images/generic-placeholder.jpg');
+
+        $cards .= '
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-1x1">
+                        <img src="' . $img . '" class="card-img-top object-fit-cover" alt="' . $name . '">
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title fw-bold mb-0">' . $name . '</h6>
+                        <p class="text-muted mb-0">' . $role . '</p>
+                        <p class="text-muted small">#' . $number . '</p>
+                    </div>
+                </div>
+            </div>';
+    }
+
+    return '
+        <div class="container pt-4">
+            <h3 class="text-center text-light mb-4">Team Roster</h3>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                ' . $cards . '
+            </div>
+        </div>';
+}
+
+
+    
 }

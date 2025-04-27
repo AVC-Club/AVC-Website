@@ -196,7 +196,8 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
             [
                 'name'      => 'Alliance Gold SL3M',
                 'image'     => '/images/_temps/Gallery/Alliance-Res-3-Gold-Mens-66.jpg',
-                'link'      => 'avc-sl3m-gold.html',
+                'link'      => // Its rm3-gold.php 
+                'rm3-gold',
             ],
             [
                 'name'      => 'Alliance Black SL3M',
@@ -245,6 +246,38 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
     ];
 
     return $renderer->render($res, 'our-teams.php', $viewData);
+});
+
+
+// AVC Teams
+
+// RM3 Gold
+
+$app->get('/rm3-gold', function (Req $req, Res $res) use ($publicPath) {
+    $renderer = new PhpRenderer($publicPath);
+
+    $teamData = [
+        'team' => [
+            ['name' => 'Andy Chan', 'position' => 'Setter', 'number' => '', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Colin Chen', 'position' => 'Outside Hitter', 'number' => '71', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Eileen Zhang', 'position' => 'Assistant Coach', 'number' => '', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Elton Lim', 'position' => 'Middle Blocker', 'number' => '65', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Gabriel Aditya', 'position' => 'Outside Hitter', 'number' => '62', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Isaiah Joseph', 'position' => 'Libero', 'number' => '64', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Ivan Chen', 'position' => 'Setter', 'number' => '70', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jaiden Bagley', 'position' => 'Opposite', 'number' => '57', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jason Gao', 'position' => 'Middle Blocker', 'number' => '80', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jason Ho', 'position' => 'Middle Blocker', 'number' => '63', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jason Wynn', 'position' => 'Opposite', 'number' => '69', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jeff Xie', 'position' => 'Head Coach', 'number' => '', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Jerome Liew', 'position' => 'Setter', 'number' => '24', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Julian Yeoh', 'position' => 'Outside Hitter', 'number' => '72', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Lucas Chan', 'position' => 'Outside Hitter', 'number' => '66', 'image' => '/images/generic-placeholder_user.jpg'],
+            ['name' => 'Stick Antolini', 'position' => 'Libero', 'number' => '73', 'image' => '/images/generic-placeholder_user.jpg'],
+        ],
+    ];
+
+    return $renderer->render($res, 'rm3-gold.php', ['teamData' => $teamData]);
 });
 
 
@@ -359,7 +392,6 @@ $app->get('/{type:images|css|js|fonts}/{file:.+}', function (Req $req, Res $res,
         return $res->withStatus(404);
     }
 });
-
 
 //* Register error handlers
 function registerErrorHandlers($app, $publicPath)
