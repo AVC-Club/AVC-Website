@@ -302,43 +302,43 @@ class Card
     }
 
     private static function teamRoster(array $data)
-{
-    if (!isset($data['team']) || !is_array($data['team'])) {
-        return '<p class="text-muted text-center">Roster not available.</p>';
-    }
+    {
+        if (!isset($data['team']) || !is_array($data['team'])) {
+            return '<p class="text-muted text-center">Roster not available.</p>';
+        }
 
-    $cards = '';
+        $cards = '';
 
-    foreach ($data['team'] as $member) {
-        $name     = htmlspecialchars($member['name'] ?? '');
-        $role     = htmlspecialchars($member['position'] ?? '');
-        $number   = htmlspecialchars($member['number'] ?? '');
-        $img      = htmlspecialchars($member['image'] ?? '/images/generic-placeholder.jpg');
+        foreach ($data['team'] as $member) {
+            $name     = htmlspecialchars($member['name'] ?? 'Unknown');
+            $role     = htmlspecialchars($member['position'] ?? 'Player');
+            $number   = htmlspecialchars($member['number'] ?? '');
+            $img      = htmlspecialchars($member['image'] ?? '/images/generic-placeholder.jpg');
 
-        $cards .= '
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <div class="ratio ratio-1x1">
-                        <img src="' . $img . '" class="card-img-top object-fit-cover" alt="' . $name . '">
+            $cards .= '
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="d-flex justify-content-center align-items-center bg-light" style="height: 220px;">
+                            <img src="' . $img . '" 
+                                class="img-fluid" 
+                                style="max-height: 90%; max-width: 90%; object-fit: cover;" 
+                                alt="' . $name . '">
+                        </div>
+                        <div class="card-body text-center d-flex flex-column justify-content-center">
+                            <h5 class="card-title fw-bold text-primary mb-1">' . $name . '</h5>
+                            <p class="text-muted mb-1">' . $role . '</p>
+                            <span class="px-3 py-2">#' . $number . '</span>
+                        </div>
                     </div>
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold mb-0">' . $name . '</h6>
-                        <p class="text-muted mb-0">' . $role . '</p>
-                        <p class="text-muted small">#' . $number . '</p>
-                    </div>
+                </div>';
+        }
+
+        return '
+            <div class="container py-5">
+                <h2 class="text-center text-light mb-5 fw-bold">🏐 Team Roster 🏐</h2>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    ' . $cards . '
                 </div>
             </div>';
-    }
-
-    return '
-        <div class="container pt-4">
-            <h3 class="text-center text-light mb-4">Team Roster</h3>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                ' . $cards . '
-            </div>
-        </div>';
-}
-
-
-    
+    }    
 }
