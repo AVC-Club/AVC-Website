@@ -175,7 +175,7 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
             ],
             [
                 'name'      => 'Alliance Black SL1M',
-                'image'     => '/images/_temps/Gallery/240803 AVC SL2M G-127.jpg',
+                'image'     => '/images/_temps/Gallery/Alliance-Res-1-Black-Mens-1.jpg',
                 'link'      => 'avc-sl1m-black.html',
             ],
             [
@@ -190,7 +190,7 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
             ],
             [
                 'name'      => 'Alliance White SL2M',
-                'image'     => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                'image'     => '/images/_temps/Gallery/Alliance-Res-2-White-Mens-1.jpg',
                 'link'      => 'avc-sl2m-white.html',
             ],
             [
