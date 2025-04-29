@@ -36,6 +36,21 @@ require(__DIR__ . '/../template/navbar.temp.php');
     </div>
 </div>
 
+<!--- Header to see what's been happening on Instagram -->
+<div class="row text-center py-4 py-xl-5">
+    <div class="col-md-8 col-xl-3 mx-auto">
+        <h2 class="fw-bold mb-4 text-white">Follow us on Instagram</h2>
+        <p class="text-muted mb-4">See what we've been up to lately!</p>
+    </div>
+
+<behold-widget feed-id="VrfTcExpKkJcSSFJMGXu"></behold-widget>
+<script>
+  (() => {
+    const d=document,s=d.createElement("script");s.type="module";
+    s.src="https://w.behold.so/widget.js";d.head.append(s);
+  })();
+</script>
+
 <?php
 require(__DIR__ . '/../template/footer.temp.php');
 ?>
