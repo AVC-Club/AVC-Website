@@ -39,7 +39,6 @@ require(__DIR__ . '/../template/navbar.temp.php');
         </tbody>
       </table>
     </div>
-
   </div>
 </div>
 
