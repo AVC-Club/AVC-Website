@@ -302,43 +302,47 @@ class Card
     }
 
     private static function teamRoster(array $data)
-    {
-        if (!isset($data['team']) || !is_array($data['team'])) {
-            return '<p class="text-muted text-center">Roster not available.</p>';
-        }
+{
+    if (!isset($data['team']) || !is_array($data['team'])) {
+        return '<p class="text-muted text-center">Roster not available.</p>';
+    }
 
-        $cards = '';
+    $cards = '';
 
-        foreach ($data['team'] as $member) {
-            $name     = htmlspecialchars($member['name'] ?? 'Unknown');
-            $role     = htmlspecialchars($member['position'] ?? 'Player');
-            $number   = htmlspecialchars($member['number'] ?? '');
-            $img      = htmlspecialchars($member['image'] ?? '/images/generic-placeholder.jpg');
+    foreach ($data['team'] as $member) {
+        $name     = htmlspecialchars($member['name'] ?? 'Unknown');
+        $role     = htmlspecialchars($member['position'] ?? 'Player');
+        $number   = htmlspecialchars($member['number'] ?? '');
+        $img      = htmlspecialchars($member['image'] ?? '/images/generic-placeholder.jpg');
 
-            $cards .= '
-                <div class="col">
-                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
-                        <div class="d-flex justify-content-center align-items-center bg-light" style="height: 220px;">
-                            <img src="' . $img . '" 
-                                class="img-fluid" 
-                                style="max-height: 90%; max-width: 90%; object-fit: cover;" 
-                                alt="' . $name . '">
-                        </div>
-                        <div class="card-body text-center d-flex flex-column justify-content-center">
-                            <h5 class="card-title fw-bold text-primary mb-1">' . $name . '</h5>
-                            <p class="text-muted mb-1">' . $role . '</p>
-                            <span class="px-3 py-2">#' . $number . '</span>
-                        </div>
+        $cards .= '
+            <div class="col team-member" data-name="' . $name . '" data-number="' . $number . '">
+                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="d-flex justify-content-center align-items-center bg-light" style="height: 220px;">
+                        <img src="' . $img . '" 
+                            class="img-fluid" 
+                            style="max-height: 90%; max-width: 90%; object-fit: cover;" 
+                            alt="' . $name . '">
                     </div>
-                </div>';
-        }
-
-        return '
-            <div class="container py-5">
-                <h2 class="text-center text-light mb-5 fw-bold">🏐 Team Roster 🏐</h2>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-                    ' . $cards . '
+                    <div class="card-body text-center d-flex flex-column justify-content-center">
+                        <h5 class="card-title fw-bold text-primary mb-1">' . $name . '</h5>
+                        <p class="text-muted mb-1">' . $role . '</p>
+                        <span class="px-3 py-2">#' . $number . '</span>
+                    </div>
                 </div>
             </div>';
-    }    
+    }
+
+    return '
+        <div class="container py-5">
+            <h2 class="text-center text-light mb-5 fw-bold">🏐 Team Roster 🏐</h2>
+            <div class="d-flex justify-content-center mb-4">
+                <button id="sortByName" class="btn btn-primary me-2">Sort by Name</button>
+                <button id="sortByNumber" class="btn btn-primary">Sort by Jersey Number</button>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="teamRoster">
+                ' . $cards . '
+            </div>
+        </div>';
+}  
 }

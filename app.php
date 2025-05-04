@@ -258,9 +258,9 @@ $app->get('/rm3-gold', function (Req $req, Res $res) use ($publicPath) {
 
     $teamData = [
         'team' => [
-            ['name' => 'Andy Chan', 'position' => 'Setter', 'number' => '', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=00'],
+            ['name' => 'Andy Chan', 'position' => 'Setter', 'number' => '39', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=39'],
             ['name' => 'Colin Chen', 'position' => 'Outside Hitter', 'number' => '71', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=71'],
-            ['name' => 'Eileen Zhang', 'position' => 'Assistant Coach', 'number' => '', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=00'],
+            ['name' => 'Eileen Zhang', 'position' => 'Assistant Coach', 'number' => '', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=Assistant Coach'],
             ['name' => 'Elton Lim', 'position' => 'Middle Blocker', 'number' => '65', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=65'],
             ['name' => 'Gabriel Aditya', 'position' => 'Outside Hitter', 'number' => '62', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=62'],
             ['name' => 'Isaiah Joseph', 'position' => 'Libero', 'number' => '64', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=64'],
@@ -269,7 +269,7 @@ $app->get('/rm3-gold', function (Req $req, Res $res) use ($publicPath) {
             ['name' => 'Jason Gao', 'position' => 'Middle Blocker', 'number' => '80', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=80'],
             ['name' => 'Jason Ho', 'position' => 'Middle Blocker', 'number' => '63', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=63'],
             ['name' => 'Jason Wynn', 'position' => 'Opposite', 'number' => '69', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=69'],
-            ['name' => 'Jeff Xie', 'position' => 'Head Coach', 'number' => '', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=00'],
+            ['name' => 'Jeff Xie', 'position' => 'Head Coach', 'number' => '', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=Head Coach'],
             ['name' => 'Jerome Liew', 'position' => 'Setter', 'number' => '24', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=24'],
             ['name' => 'Julian Yeoh', 'position' => 'Outside Hitter', 'number' => '72', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=72'],
             ['name' => 'Lucas Chan', 'position' => 'Outside Hitter', 'number' => '66', 'image' => 'https://dummyimage.com/300x300/f8f9fa/b38f14.png&text=66'],

@@ -46,3 +46,38 @@ echo Card::display('teamRoster', $teamData);
   </div>
 </div>
 
+
+
+<script>
+    document.getElementById('sortByName').addEventListener('click', function() {
+        sortRoster('name');
+    });
+
+    document.getElementById('sortByNumber').addEventListener('click', function() {
+        sortRoster('number');
+    });
+
+    function sortRoster(criteria) {
+        const rosterContainer = document.getElementById('teamRoster');
+        const teamMembers = Array.from(rosterContainer.getElementsByClassName('team-member'));
+
+        teamMembers.sort(function(a, b) {
+            const valueA = a.getAttribute('data-' + criteria);
+            const valueB = b.getAttribute('data-' + criteria);
+
+            // Handle empty jersey numbers (empty strings or nulls)
+            if (criteria === 'number') {
+                const numA = valueA === '' ? -1 : parseInt(valueA); // Treat empty numbers as -1 (smallest)
+                const numB = valueB === '' ? -1 : parseInt(valueB); // Same here for b
+                return numA - numB;  // Sort numbers in ascending order
+            } else {
+                return valueA.localeCompare(valueB);  // Sorting by name
+            }
+        });
+
+        // Append sorted team members to the roster container
+        teamMembers.forEach(function(member) {
+            rosterContainer.appendChild(member);
+        });
+    }
+</script>
