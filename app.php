@@ -180,7 +180,7 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
             ],
             [
                 'name'      => 'Alliance Gold SL2M',
-                'image'     => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                'image'     => '/images/_temps/Gallery/Alliance-Res-2-Gold-Mens.jpg',
                 'link'      => 'avc-sl2m-gold.html',
             ],
             [
@@ -219,7 +219,7 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
             ],
             [
                 'name'      => 'Alliance Gold SL2W',
-                'image'     => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                'image'     => '/images/_temps/Gallery/Alliance-Res-2-Gold-Womens.jpg',
                 'link'      => 'avc-sl2w-gold.html',
             ],
             [
@@ -229,7 +229,7 @@ $app->get('/teams', function (Req $req, Res $res) use ($publicPath) {
             ],
             [
                 'name'      => 'Alliance White SL2W',
-                'image'     => '/images/_temps/Gallery/240624 AVC SL2M G Grand Finals-35.jpg',
+                'image'     => '/images/_temps/Gallery/Alliance-Res-2-White-Womens.jpg',
                 'link'      => 'avc-sl2w-white.html',
             ],
             [
